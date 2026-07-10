@@ -14,11 +14,11 @@ const envSchema = z.object({
     POLAR_ACCESS_TOKEN: z.string().min(1),
     POLAR_WEBHOOK_SECRET: z.string().min(1),
     POLAR_API_BASE: z.string().url().default("https://sandbox-api.getpolar.sh"),
-    POLAR_CHECKOUT_PRODUCT_ID: z.string(),
+    POLAR_CHECKOUT_PRODUCT_ID: z.string().uuid(),
 
     STREAM_API_KEY: z.string().min(1),
     STREAM_API_SECRET: z.string().min(1),
-
+ 
     IMAGEKIT_PUBLIC_KEY: z.string().min(1),
     IMAGEKIT_PRIVATE_KEY: z.string().min(1),
     IMAGEKIT_URL_ENDPOINT: z.string().url(),

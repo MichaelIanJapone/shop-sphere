@@ -7,7 +7,7 @@ export type UserRole = "customer" | "support" | "admin";
 export type checkoutSessionLine = {
     productId: string;
     quantity: number;
-    UnitPriceCents: number;
+    unitPriceCents: number;
 };
 
 export const users = pgTable("users", {

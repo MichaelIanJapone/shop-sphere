@@ -22,7 +22,7 @@ async function alreadyPaid(polarOrderId?: string, checkoutId?: string) {
     const [row] = await db
       .select()
       .from(orders)
-      .where(eq(orders.polarOrderId,polarOrderId))
+      .where(eq(orders.polarOrderId, polarOrderId))
       .limit(1);
     if (row?.status === "paid") return true;
   }

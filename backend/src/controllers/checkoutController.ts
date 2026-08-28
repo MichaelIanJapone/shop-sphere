@@ -4,7 +4,7 @@ import z from "zod";
 import { getAuth } from "@clerk/express";
 import { getLocalUser } from "../lib/users";
 import { db } from "../db";
-import { checkoutSessionLine, checkoutSessions, products } from "../db/schema";
+import { CheckoutSessionLine, checkoutSessions, products } from "../db/schema";
 import { and, eq, inArray } from "drizzle-orm";
 import { polarCreateCheckout } from "../lib/polar"
 
@@ -63,7 +63,7 @@ export async function createCheckout(req: Request, res: Response, next: NextFunc
 
     const byId = new Map(prodRows.map((p) => [p.id, p]));
     let totalCents = 0;
-    const lines: checkoutSessionLine[] = [];
+    const lines: CheckoutSessionLine[] = [];
 
     for (const line of parsed.data.items) {
       const p = byId.get(line.productId)!;
